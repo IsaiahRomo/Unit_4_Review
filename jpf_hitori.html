@@ -7,8 +7,8 @@
       Review Assignment
 
       Hitori Interactive Puzzle
-      Author: 
-      Date:   
+      Author: Isaiah Romo
+      Date:   3/9/20
 
       Filename:   jpf_hitori.html
 
@@ -19,7 +19,9 @@
    <title>The Hitori Puzzle</title>
    <link href="jpf_reset.css" rel="stylesheet" />
    <link href="jpf_styles.css" rel="stylesheet" />
- 
+   <link href="jpf_hitori.css" rel="stylesheet" />
+   <script src="jpf_grids3.js" defer></script>
+   <script src="jpf_hitori.js" defer></script>
 </head>
 
 <body>
@@ -49,8 +51,8 @@
       <figure id="puzzle"></figure>
    
       <div id="bottomButtons">
-         <input type="button" id="check" value="Check Solution" />
-         <input type="button" id="solve" value="Show Solution" />
+         <input type="button" id="check" value="Check Solution" onclick="findError()" />
+         <input type="button" id="solve" value="Show Solution" onclick="findSolution()"/>
       </div>  
    </section>
    

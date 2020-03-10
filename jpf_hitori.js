@@ -5,8 +5,8 @@
    Tutorial 11
    Review Assignment
 
-   Author: 
-   Date:   
+   Author: Isaiah Romo
+   Date:   3/9/20
 
    Global Variables
    ================
@@ -46,9 +46,49 @@
       the numbers, blocks, and rating parameters.
 	
 */
+var allCells;
+window.onload = startUp;
 
+function startUp(){
+   document.getElementById("puzzleTitle").innerHTML = "Puzzle 1";
 
+   document.getElementById("puzzle").innerHTML = drawHitori(hitori1Numbers, hitori1Blocks, hitori1Rating);
 
+   var puzzleButtons = document.getElementsByClassName("puzzles")
+   for(var i = 0; i < puzzleButtons.length; i++){
+      puzzleButtons[i].onclick = swapPuzzle;
+   }
+   setupPuzzle();
+}
+
+function switchPuzzle(){
+   if(confirm("Are You Sure You Want To Switch Puzzles?")){
+      var puzzleID = e.target.id;
+      document.getElementById("puzzleTitle").innerHTML = e.target.value;
+
+      switch(puzzleID){
+         case("puzzle1"):
+            drawHitori(hitori1Numbers, hitori1Blocks, hitori1Rating)
+            break;
+         case("puzzle2"):
+            drawHitori(hitori2Numbers, hitori2Blocks, hitori2Rating)
+            break;
+         case("puzzle3"):
+            drawHitori(hitori3Numbers, hitori3Blocks, hitori3Rating)
+            break;
+      }
+      setupPuzzle();
+   }
+}
+
+function setupPuzzle{
+   allCells = document.querySelectorAll("table#hitoriGrid td");
+   for(var i = 0; i < allCells.length; i++){
+      allCells.style.backgroundColor = "white";
+      allCells.style.fontColor = "black";
+   }
+
+}
 
 
 
