@@ -86,24 +86,26 @@ function setupPuzzle(){
       allCells[i].style.backgroundColor = "white";
       allCells[i].style.color = "black";
       allCells[i].style.borderRadius = "0";
+      // when you click down it changes the cell when you press on the keys or whenever you click
       allCells[i].addEventListener("mousedown", 
          function(e){
             if(e.shiftKey){
                e.target.style.backgroundColor = "white";
                e.target.style.color = "black";
-                e.target.style.borderRadius = "0";
+               e.target.style.borderRadius = "0";
             }else if(e.altKey){
-                e.target.style.backgroundColor = "black";
-                e.target.style.color = "white";
-                e.target.style.borderRadius = "0";
+               e.target.style.backgroundColor = "black";
+               e.target.style.color = "white";
+               e.target.style.borderRadius = "0";
             }else{
-                e.target.style.backgroundColor = "rgb(101, 101, 101)";
-                e.target.style.color = "white";
-                e.target.style.borderRadius = "50%";
+               e.target.style.backgroundColor = "rgb(101, 101, 101)";
+               e.target.style.color = "white";
+               e.target.style.borderRadius = "50%";
             }
             e.preventDefault();
          }
       );
+      // added a eventlistener when the mouse hovers over the puzzle and changes the cursor
       allCells[i].addEventListener("mouseover", 
          function(e){
             if(e.shiftKey){
@@ -115,10 +117,11 @@ function setupPuzzle(){
             }
          }
       );
+      // add a listener to check the solution
       allCells[i].addEventListener("mouseup", checkSolution);
    }
 }
-
+// find the ones that are wrong and mark them with red font
 function findErrors(){
    for(var i = 0; i < allCells.length; i++){
       if(
@@ -126,9 +129,10 @@ function findErrors(){
          ||
          (allCells[i].className === "circles" && allCells[i].style.backgroundColor === ("black"))
       ){
-          allCells[i].style.color = "red"
+         allCells[i].style.color = "red"
       }
    }
+   // sets a time interval to when it stop showing the ones wrong
    setTimeout(
       function(){
          for(var i = 0; i < allCells.length; i++){
